@@ -38,14 +38,14 @@ func _physics_process(delta):
 		else:
 			_velocity.y += GRAVITY
 		
-		if Input.is_action_pressed("ui_left"):
-			print("left")
+		if ! Input.is_action_pressed("ui_left") && ! Input.is_action_pressed("ui_right"):
+			_velocity.x = 0
+
+		if Input.is_action_just_pressed("ui_left"):
 			_velocity.x = -MOVEMENT_SPEED
-		if Input.is_action_pressed("ui_right"):
-			print("right")
+		if Input.is_action_just_pressed("ui_right"):
 			_velocity.x = MOVEMENT_SPEED
 		if Input.is_action_just_pressed("jump") && ! _is_jumping:
-			print("start jump")
 			_is_jumping = true
 			_velocity.y = -JUMP_VELOCITY
 			# Start jump timer. While this timer is in progress, we can enable hangtime by holding jump
@@ -60,7 +60,6 @@ func _physics_process(delta):
 			$JumpTimer.stop()
 			
 		if Input.is_action_just_pressed("shoot"):
-			print("shoot")
 			var projectile = projectile_scene.instance()
 			projectile.position = get_global_position()
 			get_parent().add_child(projectile)
