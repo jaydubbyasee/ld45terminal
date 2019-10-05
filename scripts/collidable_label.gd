@@ -20,3 +20,13 @@ func _ready():
 	add_child(static_body)
 	
 	pass
+	
+func enable():
+	visible = true
+	collision_shape.disabled = false
+	pass
+	
+func disable():
+	visible = false
+	collision_shape.disabled = true
+	pass

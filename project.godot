@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Terminal"
-run/main_scene="res://scenes/levels/Level_01_Tutorial.tscn"
+run/main_scene="res://scenes/levels/level01/Level_01_Tutorial.tscn"
 config/icon="res://icon.png"
 
 [input]

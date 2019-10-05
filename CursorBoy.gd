@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var projectile_scene = preload("res://Projectile.tscn")
 
+signal player_submitted_text(text)
+
 const GRAVITY = 9.8
 const MOVEMENT_SPEED = 100
 const JUMP_VELOCITY = 200
@@ -21,15 +23,6 @@ var _mode = CURSOR_MODE.normal
 func _ready():
 	$AnimatedSprite.play("default")
 
-func _process(delta):
-	if Input.is_action_just_pressed("insert_mode") && _mode != CURSOR_MODE.insert:
-		print("entering insert mode")
-		_mode = CURSOR_MODE.insert
-		# Make textbox visibile
-		$LineEdit.visible = true
-		$LineEdit.grab_focus()
-	pass
-
 func _physics_process(delta):
 
 	if _mode != CURSOR_MODE.insert:
@@ -38,11 +31,6 @@ func _physics_process(delta):
 			_velocity.y += GRAVITY * FALL_MULTIPLIER
 		else:
 			_velocity.y += GRAVITY
-		
-		# Requirements:
-		# If left is pressed, move left
-		# If right is pressed, move right
-		# If both are pressed, move the most recent pressed
 #
 		if Input.is_action_pressed("ui_left") && ! Input.is_action_pressed("ui_right"):
 			_velocity.x = -MOVEMENT_SPEED	
@@ -69,6 +57,13 @@ func _physics_process(delta):
 			var projectile = projectile_scene.instance()
 			projectile.position = get_global_position()
 			get_parent().add_child(projectile)
+			
+		if Input.is_action_just_pressed("ui_accept"):
+			print("entering insert mode")
+			_mode = CURSOR_MODE.insert
+			# Make textbox visibile
+			$LineEdit.visible = true
+			$LineEdit.grab_focus()
 		
 		# Clamp max fall velocity
 		_velocity.y = min(_velocity.y, MAX_FALL_VELOCITY)
@@ -76,13 +71,11 @@ func _physics_process(delta):
 		move_and_slide(_velocity, Vector2(0, -1))
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
-			print("exiting insert mode")
-			_mode = CURSOR_MODE.normal
-			# TODO: FLUSH buffer and hide text edit
+			# Notify listeners and flush buffer
+			emit_signal("player_submitted_text", $LineEdit.text)
 			$LineEdit.visible = false
 			$LineEdit.text = ""
-		else:
-			print ("insert mode")
+			_mode = CURSOR_MODE.normal
 
 	if is_on_floor():
 		_is_jumping = false

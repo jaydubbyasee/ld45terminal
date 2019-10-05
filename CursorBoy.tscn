@@ -37,9 +37,6 @@ custom_styles/normal = SubResource( 2 )
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
 

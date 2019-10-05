@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/collidable_label.gd" type="Script" id=1]
+
+[node name="Level_02" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="CollidableLabel" type="Label" parent="."]
+margin_left = -64.2241
+margin_top = -10.0592
+margin_right = 62.7759
+margin_bottom = 3.94083
+text = "LEVEL 2 Placeholder"
+script = ExtResource( 1 )
