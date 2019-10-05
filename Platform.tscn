@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/ubuntu-font-family-0.83/UbuntuMono-R.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 98.8956, 10 )
+
+[node name="Platform" type="Label"]
+margin_left = -84.5164
+margin_top = 42.5911
+margin_right = 107.484
+margin_bottom = 59.5911
+custom_fonts/font = SubResource( 1 )
+text = "Ctrl+Alt+Delete+Liferaft"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 96.2112, 9.75351 )
+shape = SubResource( 2 )

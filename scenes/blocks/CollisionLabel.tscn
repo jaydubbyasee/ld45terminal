@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.8042, 10 )
+
+[node name="Label" type="Label"]
+margin_left = -10.1457
+margin_top = -6.89909
+margin_right = 29.8543
+margin_bottom = 7.10091
+text = "test"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 13.7982, 6.62853 )
+shape = SubResource( 1 )
