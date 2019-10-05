@@ -27,10 +27,10 @@ font_data = ExtResource( 4 )
 script = ExtResource( 1 )
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = -6.34758
-margin_top = -11.5922
-margin_right = 296.652
-margin_bottom = 12.4078
+margin_left = 8.70479
+margin_top = -11.1741
+margin_right = 311.704
+margin_bottom = 12.8259
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 
