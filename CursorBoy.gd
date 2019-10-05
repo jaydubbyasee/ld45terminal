@@ -2,10 +2,11 @@ extends KinematicBody2D
 
 onready var projectile_scene = preload("res://Projectile.tscn")
 
-const GRAVITY = 10
-const MOVEMENT_SPEED = 50
-const JUMP_VELOCITY = 150
+const GRAVITY = 9.8
+const MOVEMENT_SPEED = 100
+const JUMP_VELOCITY = 200
 const FALL_MULTIPLIER = 10
+const MAX_FALL_VELOCITY = 300
 const HANG_ACCEL = 200
 
 enum CURSOR_MODE {
@@ -63,6 +64,9 @@ func _physics_process(delta):
 			var projectile = projectile_scene.instance()
 			projectile.position = get_global_position()
 			get_parent().add_child(projectile)
+		
+		# Clamp max fall velocity
+		_velocity.y = min(_velocity.y, MAX_FALL_VELOCITY)
 			
 		move_and_slide(_velocity, Vector2(0, -1))
 	else:
