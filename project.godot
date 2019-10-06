@@ -24,6 +24,10 @@ config/name="Terminal"
 run/main_scene="res://scenes/levels/level01/Level_01_Tutorial.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+state_manager="*res://scripts/state_manager.gd"
+
 [input]
 
 ui_accept={

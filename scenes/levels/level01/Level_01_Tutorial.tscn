@@ -39,11 +39,13 @@ position = Vector2( 667.673, 46.7792 )
 shape = SubResource( 1 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( 21.7078, 29.8747 )
 
 [node name="CollisionBox" parent="CursorBoy" index="1"]
 shape = SubResource( 2 )
+
+[node name="DeathTimer" parent="CursorBoy" index="7"]
+wait_time = 2.5
 
 [node name="Platform1" type="Label" parent="."]
 margin_left = 6.0
@@ -157,7 +159,6 @@ text = "To enter command mode, press <enter>"
 script = ExtResource( 3 )
 
 [node name="Triggers" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="HelpTrigger" type="Area2D" parent="Triggers"]
 editor/display_folded = true
@@ -190,6 +191,7 @@ shape = SubResource( 7 )
 editor/display_folded = true
 
 [node name="CameraTransitionTrigger01" type="Area2D" parent="Cameras"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cameras/CameraTransitionTrigger01"]
 position = Vector2( 458.996, 251.439 )
@@ -203,6 +205,7 @@ position = Vector2( 510, 300 )
 current = true
 [connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
+[connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="body_shape_entered" from="Triggers/HelpTrigger" to="." method="_on_player_enters_help_trigger"]
 [connection signal="body_shape_exited" from="Triggers/HelpTrigger" to="." method="_on_help_trigger_exited"]
 [connection signal="body_shape_entered" from="Triggers/Level2Trigger" to="." method="_on_Level2Trigger_body_shape_entered"]

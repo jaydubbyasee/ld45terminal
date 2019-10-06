@@ -88,3 +88,4 @@ func die():
 	particle_system.global_position = global_position
 	particle_system.emitting = true
 	$DeathSfxPlayer.play()
+	$DeathTimer.start()
