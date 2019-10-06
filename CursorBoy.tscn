@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://CursorBoy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/CursorBoy1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/CursorBoy2.png" type="Texture" id=3]
 [ext_resource path="res://fonts/ubuntu-font-family-0.83/UbuntuMono-R.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sfx/death_sound_01.wav" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -22,6 +23,12 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=6]
+
+[sub_resource type="Curve" id=7]
+max_value = 80.0
+_data = [ Vector2( 0.00799196, 47.6445 ), 0.0, 0.0, 0, 0, Vector2( 0.379858, 21.7749 ), 0.0, 0.0, 0, 0, Vector2( 0.929077, 12.5358 ), 0.0, 0.0, 0, 0 ]
 
 [node name="CursorBoy" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -51,3 +58,30 @@ margin_right = -9.33568
 margin_bottom = 6.84791
 custom_fonts/font = SubResource( 5 )
 text = "$"
+
+[node name="DeathParticleSystem" type="CPUParticles2D" parent="."]
+material = SubResource( 6 )
+emitting = false
+amount = 32
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+spread = 180.0
+gravity = Vector2( 0, 98 )
+initial_velocity = 400.0
+initial_velocity_random = 0.82
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = 11.9
+radial_accel = 26.8
+radial_accel_random = 1.0
+angle_random = 1.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 7 )
+anim_speed = 28.0
+anim_speed_random = 1.0
+
+[node name="DeathSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

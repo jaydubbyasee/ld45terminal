@@ -21,6 +21,7 @@ var _is_jumping = false
 var _mode = CURSOR_MODE.normal
 
 func _ready():
+	$DeathParticleSystem.emitting = false
 	$AnimatedSprite.play("default")
 
 func _physics_process(delta):
@@ -79,3 +80,11 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		_is_jumping = false
+		
+func die():
+	# Spawn a particle system in the parent scene
+	var particle_system = $DeathParticleSystem.duplicate()
+	get_parent().add_child(particle_system)
+	particle_system.global_position = global_position
+	particle_system.emitting = true
+	$DeathSfxPlayer.play()
