@@ -33,13 +33,14 @@ _data = [ Vector2( 0.00799196, 47.6445 ), 0.0, 0.0, 0, 0, Vector2( 0.379858, 21.
 script = ExtResource( 1 )
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = -3.21489
-margin_top = -11.5147
-margin_right = 299.784
-margin_bottom = 12.4853
+margin_left = -7.21642
+margin_top = -11.884
+margin_right = 295.784
+margin_bottom = 12.116
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 expand_to_text_length = true
+caret_blink_speed = 1.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

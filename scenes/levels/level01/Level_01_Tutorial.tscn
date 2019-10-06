@@ -13,16 +13,16 @@ extents = Vector2( 581.667, 410.269 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.99892, 7.56165 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 334.041, 382.45 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 50, 40 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 270, 250 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 151.302, 60.5969 )
 
 [node name="Level01_Tutorial" type="Node2D"]
@@ -38,6 +38,7 @@ position = Vector2( 667.673, 46.7792 )
 shape = SubResource( 1 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 21.7078, 29.8747 )
 
 [node name="CollisionBox" parent="CursorBoy" index="1"]
@@ -163,7 +164,7 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/HelpTrigger"]
 position = Vector2( 236.739, 321.253 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Level2Trigger" type="Area2D" parent="Triggers"]
 editor/display_folded = true
@@ -172,7 +173,7 @@ position = Vector2( 320, 610 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level2Trigger"]
 position = Vector2( 40, 10 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="CommandsTrigger" type="Area2D" parent="Triggers"]
 editor/display_folded = true
@@ -180,7 +181,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CommandsTrigger"]
 position = Vector2( 508.452, 440 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Cameras" type="Node" parent="."]
 editor/display_folded = true
@@ -190,7 +191,7 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cameras/CameraTransitionTrigger01"]
 position = Vector2( 458.996, 251.439 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="CameraHint01" type="Node2D" parent="Cameras"]
 position = Vector2( 820, 510 )
