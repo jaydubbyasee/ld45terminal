@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://CursorBoy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/CursorBoy1.png" type="Texture" id=2]
-[ext_resource path="res://sprites/CursorBoy2.png" type="Texture" id=3]
-[ext_resource path="res://fonts/ubuntu-font-family-0.83/UbuntuMono-R.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://sfx/death_sound_01.wav" type="AudioStream" id=5]
+[ext_resource path="res://fonts/ubuntu-font-family-0.83/UbuntuMono-R.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sfx/death_sound_01.wav" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -15,14 +14,14 @@ extents = Vector2( 3.99892, 7.56165 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), null ],
 "loop": true,
 "name": "default",
-"speed": 1.0
+"speed": 2.0
 } ]
 
 [sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="ShaderMaterial" id=6]
 
@@ -34,12 +33,13 @@ _data = [ Vector2( 0.00799196, 47.6445 ), 0.0, 0.0, 0, 0, Vector2( 0.379858, 21.
 script = ExtResource( 1 )
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 8.70479
-margin_top = -11.1741
-margin_right = 311.704
-margin_bottom = 12.8259
+margin_left = -3.21489
+margin_top = -11.5147
+margin_right = 299.784
+margin_bottom = 12.4853
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
+expand_to_text_length = true
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
@@ -84,7 +84,7 @@ anim_speed = 28.0
 anim_speed_random = 1.0
 
 [node name="DeathSfxPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 5.0

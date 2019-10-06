@@ -10,6 +10,7 @@ const JUMP_VELOCITY = 200
 const FALL_MULTIPLIER = 10
 const MAX_FALL_VELOCITY = 300
 const HANG_ACCEL = 200
+const COL_WIDTH = 8
 
 enum CURSOR_MODE {
 	insert,
@@ -25,6 +26,8 @@ func _ready():
 	$AnimatedSprite.play("default")
 
 func _physics_process(delta):
+
+	$AnimatedSprite.position.x = COL_WIDTH * $LineEdit.text.length()
 
 	if _mode != CURSOR_MODE.insert:
 

@@ -29,7 +29,6 @@ extents = Vector2( 151.302, 60.5969 )
 script = ExtResource( 1 )
 
 [node name="WorldBounds" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( -235.602, 352.452 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
@@ -43,9 +42,6 @@ position = Vector2( 21.7078, 29.8747 )
 
 [node name="CollisionBox" parent="CursorBoy" index="1"]
 shape = SubResource( 2 )
-
-[node name="DeathTimer" parent="CursorBoy" index="7"]
-wait_time = 2.5
 
 [node name="Platform1" type="Label" parent="."]
 margin_left = 6.0
@@ -64,22 +60,21 @@ text = "Use the command /help or /h to get started"
 script = ExtResource( 3 )
 
 [node name="HelpGroup" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="CollidableLabel2" type="Label" parent="HelpGroup"]
 margin_left = 360.0
-margin_top = 350.0
+margin_top = 360.0
 margin_right = 569.0
-margin_bottom = 364.0
+margin_bottom = 374.0
 text = "ls - lists files in current directory"
 script = ExtResource( 3 )
 
 [node name="CollidableLabel5" type="Label" parent="HelpGroup"]
 margin_left = 318.36
-margin_top = 310.0
+margin_top = 320.0
 margin_right = 390.36
-margin_bottom = 324.0
+margin_bottom = 334.0
 text = "Commands"
 script = ExtResource( 3 )
 
@@ -102,18 +97,18 @@ script = ExtResource( 3 )
 
 [node name="CollidableLabel8" type="Label" parent="HelpGroup"]
 margin_left = 360.0
-margin_top = 390.0
+margin_top = 399.231
 margin_right = 468.0
-margin_bottom = 404.0
+margin_bottom = 413.231
 rect_pivot_offset = Vector2( 64.2882, 26.8959 )
 text = "open - opens file"
 script = ExtResource( 3 )
 
 [node name="CollidableLabel9" type="Label" parent="HelpGroup"]
 margin_left = 360.0
-margin_top = 430.0
+margin_top = 440.0
 margin_right = 596.0
-margin_bottom = 444.0
+margin_bottom = 454.0
 text = "clear - clears and resets the terminal"
 script = ExtResource( 3 )
 

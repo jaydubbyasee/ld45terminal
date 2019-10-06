@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 state_manager="*res://scripts/state_manager.gd"
 
+[gui]
+
+theme/custom_font="res://fonts/ubuntu-mono-r.tres"
+
 [input]
 
 ui_accept={
