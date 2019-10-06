@@ -1,14 +1,21 @@
 extends Node
 
+var enabled
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	disable()
+	set_enabled(false)
 	pass # Replace with function body.
 
-func enable():
-	for child in get_children():
-		child.enable()
+func get_enabled():
+	return enabled
+
+func set_enabled(value):
+	enabled = value
 	
-func disable():
-	for child in get_children():
-		child.disable()
+	if value:
+		for child in get_children():
+			child.enable()
+	else:
+		for child in get_children():
+			child.disable()

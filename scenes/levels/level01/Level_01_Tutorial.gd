@@ -35,7 +35,10 @@ func _on_CursorBoy_player_submitted_text(text):
 	if command_trigger_entered:
 		match text:
 			"ls":
-				$FileGroup.enable()
+				$FileGroup.set_enabled(true)
+			"clear":
+				get_tree().call_group("clearable", "disable")
+				get_tree().call_group("clearable", "set_visible", false)
 	if level_trigger_entered:
 		match text:
 			"open":
@@ -43,14 +46,16 @@ func _on_CursorBoy_player_submitted_text(text):
 
 var level_trigger_entered = false
 func _on_Level2Trigger_body_shape_entered(body_id, body, body_shape, area_shape):
-	if body == $CursorBoy:
+	if body == $CursorBoy && $FileGroup.enabled:
 		level_trigger_entered = true
+		$FileBoxHighlight.visible = true
 	pass
 
 
 func _on_Level2Trigger_body_shape_exited(body_id, body, body_shape, area_shape):
 	if $CursorBoy == body:
 		level_trigger_entered = false
+		$FileBoxHighlight.visible = false
 	pass
 
 
