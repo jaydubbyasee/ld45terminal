@@ -72,7 +72,7 @@ func _physics_process(delta):
 		# Clamp max fall velocity
 		_velocity.y = min(_velocity.y, MAX_FALL_VELOCITY)
 			
-		move_and_slide(_velocity, Vector2(0, -1))
+		_velocity = move_and_slide(_velocity, Vector2(0, -1))
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			# Notify listeners and flush buffer
