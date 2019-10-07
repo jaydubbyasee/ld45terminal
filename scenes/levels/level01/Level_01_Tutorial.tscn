@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/levels/level01/HelpTrigger.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 581.667, 431.347 )
+extents = Vector2( 462.123, 395.438 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 334.041, 382.45 )
@@ -31,7 +31,7 @@ position = Vector2( -235.602, 352.452 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
 self_modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
-position = Vector2( 692.8, 43.1449 )
+position = Vector2( 699.116, 42.0923 )
 shape = SubResource( 1 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 2 )]
@@ -42,8 +42,8 @@ position = Vector2( 22.4947, 30.6652 )
 ]]
 margin_left = 6.0
 margin_top = 43.0
-margin_right = 148.0
-margin_bottom = 57.0
+margin_right = 166.0
+margin_bottom = 60.0
 text = "Welcome to Terminal."
 script = ExtResource( 3 )
 
@@ -109,7 +109,7 @@ margin_top = 399.231
 margin_right = 468.0
 margin_bottom = 413.231
 rect_pivot_offset = Vector2( 64.2882, 26.8959 )
-text = "open - opens file"
+text = "open - opens file or directory"
 script = ExtResource( 3 )
 
 [node name="CollidableLabel9" type="Label" parent="HelpGroup" groups=[
@@ -173,7 +173,6 @@ script = ExtResource( 3 )
 [node name="Triggers" type="Node" parent="."]
 
 [node name="HelpTrigger" type="Area2D" parent="Triggers"]
-editor/display_folded = true
 position = Vector2( 96.1257, 75.8678 )
 script = ExtResource( 6 )
 
@@ -191,7 +190,7 @@ shape = SubResource( 3 )
 [node name="CommandsTrigger" type="Area2D" parent="Triggers"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CommandsTrigger"]
-position = Vector2( 510, 370 )
+position = Vector2( 508.947, 370 )
 shape = SubResource( 4 )
 
 [node name="Cameras" type="Node" parent="."]

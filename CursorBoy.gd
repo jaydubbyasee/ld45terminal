@@ -20,12 +20,15 @@ enum CURSOR_MODE {
 var _velocity = Vector2(0,0)
 var _is_jumping = false
 var _mode = CURSOR_MODE.normal
+var _dead = false
 
 func _ready():
 	$DeathParticleSystem.emitting = false
 	$AnimatedSprite.play("default")
 
 func _physics_process(delta):
+	if _dead:
+		return
 
 	$AnimatedSprite.position.x = COL_WIDTH * $LineEdit.text.length()
 
@@ -92,3 +95,4 @@ func die():
 	particle_system.emitting = true
 	$DeathSfxPlayer.play()
 	$DeathTimer.start()
+	_dead = true

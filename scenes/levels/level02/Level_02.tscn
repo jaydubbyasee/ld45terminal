@@ -91,7 +91,7 @@ margin_top = 440.0
 margin_right = 498.449
 margin_bottom = 457.0
 rect_pivot_offset = Vector2( 64.2882, 26.8959 )
-text = "open - opens file"
+text = "open - opens file or directory"
 script = ExtResource( 3 )
 
 [node name="clearPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
