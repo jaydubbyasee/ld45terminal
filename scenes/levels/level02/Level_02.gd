@@ -15,14 +15,17 @@ func _on_DeathTimer_timeout():
 	get_tree().change_scene("res://scenes/levels/GameOver.tscn")
 	pass
 
+var file_generated = false
 func _on_CursorBoy_player_submitted_text(text):
 	match text:
 		"/h", "/help":
 			get_tree().call_group("helpPlatforms", "enable")
 		"ls":
-			$Platforms/noFilesPlatform.enable()
+			if ! file_generated:
+				$Platforms/noFilesPlatform.enable()
 		"gen_level3":
 			$Platforms/level03Platform.enable()
+			file_generated = true
 		"clear":
 			get_tree().call_group("clearable", "disable")
 		"open":

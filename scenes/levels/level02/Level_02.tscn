@@ -122,9 +122,9 @@ script = ExtResource( 3 )
 "hideOnStart",
 ]]
 margin_left = 10.0
-margin_top = 470.0
+margin_top = 570.0
 margin_right = 98.0
-margin_bottom = 487.0
+margin_bottom = 587.0
 custom_colors/font_color = Color( 1, 0.721569, 0.192157, 1 )
 text = "level03.txt"
 script = ExtResource( 3 )
@@ -154,10 +154,10 @@ script = ExtResource( 3 )
 "clearable",
 "hideOnStart",
 ]]
-margin_left = 10.0
-margin_top = 507.0
-margin_right = 298.0
-margin_bottom = 524.0
+margin_left = 8.6643
+margin_top = 510.0
+margin_right = 296.664
+margin_bottom = 527.0
 text = "There are no files in this directory"
 script = ExtResource( 3 )
 
@@ -181,10 +181,10 @@ shape = SubResource( 1 )
 [node name="Level03Highlight" type="ColorRect" parent="." groups=[
 "hideOnStart",
 ]]
-margin_left = 9.0
-margin_top = 470.0
-margin_right = 100.0
-margin_bottom = 490.0
+margin_left = 8.6643
+margin_top = 570.0
+margin_right = 99.6643
+margin_bottom = 590.0
 color = Color( 0.294118, 0.294118, 0.294118, 1 )
 
 [node name="Triggers" type="Node" parent="."]
@@ -192,7 +192,7 @@ color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [node name="Level03Trigger" type="Area2D" parent="Triggers"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level03Trigger"]
-position = Vector2( 54.8414, 470.88 )
+position = Vector2( 60, 570 )
 shape = SubResource( 2 )
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
 [connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
