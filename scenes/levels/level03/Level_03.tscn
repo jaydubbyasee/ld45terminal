@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/levels/level03/Level_03.gd" type="Script" id=1]
 [ext_resource path="res://scripts/collidable_label.gd" type="Script" id=2]
@@ -10,6 +10,24 @@ extents = Vector2( 506.576, 337 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 46.2842, 20 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 200.484, 31.7111 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 151.003, 17 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 156.46, 12.1878 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 33.9974, 9.92749 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 173.354, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 83.9548, 12.6867 )
 
 [node name="Level_03" type="Node2D"]
 script = ExtResource( 1 )
@@ -52,6 +70,32 @@ color = Color( 0.294118, 0.294118, 0.294118, 1 )
 position = Vector2( -130, 760 )
 shape = SubResource( 2 )
 
+[node name="DeathTrigger" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 239.302, 472.321 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 190, 420 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 194.469, 376.1 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 71.6691, 209.319 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 209.888, 257.099 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+position = Vector2( 533.427, 422.02 )
+shape = SubResource( 8 )
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="HelpGroup" type="Node" parent="Platforms"]
@@ -59,119 +103,260 @@ script = ExtResource( 4 )
 
 [node name="lsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 431.64
-margin_top = 240.0
-margin_right = 727.64
-margin_bottom = 257.0
+margin_left = 481.64
+margin_top = 200.0
+margin_right = 777.64
+margin_bottom = 217.0
 text = "ls - lists files in current directory"
 script = ExtResource( 2 )
 
 [node name="commandsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 390.0
-margin_top = 195.474
-margin_right = 462.0
-margin_bottom = 212.474
+margin_left = 440.0
+margin_top = 160.0
+margin_right = 512.0
+margin_bottom = 177.0
 text = "Commands"
 script = ExtResource( 2 )
 
 [node name="navPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 390.0
-margin_top = 100.0
-margin_right = 470.0
-margin_bottom = 117.0
+margin_left = 440.0
+margin_top = 70.0
+margin_right = 520.0
+margin_bottom = 87.0
 text = "Navigation"
 script = ExtResource( 2 )
 
 [node name="navTextPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 431.64
-margin_top = 135.474
-margin_right = 767.64
-margin_bottom = 172.474
+margin_left = 482.0
+margin_top = 105.0
+margin_right = 818.0
+margin_bottom = 122.0
 text = "Use arrow keys to move and <space> to jump"
 script = ExtResource( 2 )
 
 [node name="openPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 430.665
-margin_top = 280.0
-margin_right = 670.665
-margin_bottom = 297.0
+margin_left = 480.665
+margin_top = 240.0
+margin_right = 720.665
+margin_bottom = 257.0
 rect_pivot_offset = Vector2( 64.2882, 26.8959 )
 text = "open - opens file or directory"
 script = ExtResource( 2 )
 
 [node name="clearPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
 "clearable",
+"hideOnStart",
 "helpPlatforms",
 ]]
-margin_left = 431.64
-margin_top = 320.0
-margin_right = 735.64
-margin_bottom = 337.0
+margin_left = 481.64
+margin_top = 280.0
+margin_right = 785.64
+margin_bottom = 297.0
 text = "clear - clears and resets the terminal"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel" type="Label" parent="Platforms/HelpGroup"]
-margin_left = 431.64
-margin_top = 350.0
-margin_right = 687.64
-margin_bottom = 370.0
-text = "rm - removes a file or directory"
+[node name="CollidableLabel" type="Label" parent="Platforms" groups=[
+"hideOnStart",
+]]
+margin_left = 920.0
+margin_top = 570.0
+margin_right = 1010.0
+margin_bottom = 587.0
+custom_colors/font_color = Color( 1, 0.47451, 0, 1 )
+text = "the.end.txt"
 script = ExtResource( 2 )
 
-[node name="folder1Platform" type="Label" parent="Platforms"]
-margin_left = 30.0
-margin_top = 150.0
-margin_right = 94.0
-margin_bottom = 167.0
-text = "Fonts/"
-script = ExtResource( 2 )
+[node name="AssetsGroup" type="Node" parent="Platforms"]
 
-[node name="folder2Platform" type="Label" parent="Platforms"]
-margin_left = 30.0
-margin_top = 117.0
-margin_right = 102.0
-margin_bottom = 134.0
+[node name="AssetsFolderPlatform" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 105.474
+margin_right = 96.0
+margin_bottom = 122.474
+custom_colors/font_color = Color( 1, 0.247059, 0, 1 )
 text = "Assets/"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel" type="Label" parent="Platforms"]
-margin_left = 30.0
-margin_top = 240.0
-margin_right = 86.0
-margin_bottom = 257.0
-text = "Levels/"
+[node name="BootyPlatform" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 130.0
+margin_top = 200.0
+margin_right = 234.0
+margin_bottom = 217.0
+custom_colors/font_color = Color( 1, 0.462745, 0.0627451, 1 )
+text = "passwords.txt"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel" type="Label" parent="."]
-margin_left = 30.0
-margin_top = 180.0
-margin_right = 222.0
-margin_bottom = 197.0
-text = "lusty_argonion_maidz.png"
+[node name="CollidableLabel4" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 350.0
+margin_top = 410.0
+margin_right = 440.0
+margin_bottom = 427.0
+custom_colors/font_color = Color( 1, 0.360784, 0, 1 )
+text = "SAFE_HAVEN/"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel2" type="Label" parent="."]
-margin_left = 30.0
-margin_top = 210.0
-margin_right = 206.0
-margin_bottom = 227.0
-text = "Platformer PLaceholder"
+[node name="CollidableLabel" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 260.0
+margin_top = 200.0
+margin_right = 444.0
+margin_bottom = 217.0
+text = "Insufficient privileges"
+script = ExtResource( 2 )
+
+[node name="CollidableLabel2" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 350.0
+margin_top = 570.0
+margin_right = 726.0
+margin_bottom = 587.0
+text = "becareful.you.are.almost.there.dont.mess.up.txt"
+script = ExtResource( 2 )
+
+[node name="CollidableLabel3" type="Label" parent="Platforms/AssetsGroup" groups=[
+"hideOnStart",
+]]
+margin_left = 799.599
+margin_top = 568.603
+margin_right = 847.599
+margin_bottom = 585.603
+text = "finish"
+script = ExtResource( 2 )
+
+[node name="VirusPlatforms" type="Node" parent="Platforms"]
+
+[node name="VirusPlatform9" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 200.0
+margin_right = 104.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( 52.6936, 8.72754 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "virus.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform8" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 40.0
+margin_top = 247.0
+margin_right = 384.0
+margin_bottom = 264.0
+text = "not.a.virus.exe  trinity.worm.obj  5head.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform7" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 290.0
+margin_right = 440.0
+margin_bottom = 307.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "totally_nOt_a_viruS_pepega.exe.sh toouuucchh.me.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform6" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 450.0
+margin_top = 410.0
+margin_right = 618.0
+margin_bottom = 427.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "watch.your.step.kappa"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform5" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 370.0
+margin_right = 360.0
+margin_bottom = 387.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "hydra.a  minotaur.o touch.me.feel.me.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 410.0
+margin_right = 336.0
+margin_bottom = 427.0
+rect_pivot_offset = Vector2( 230.958, 6.84497 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "touch.me.feel.me.sh hecate.banish.exe"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform2" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 39.0
+margin_top = 450.0
+margin_right = 439.0
+margin_bottom = 467.0
+rect_pivot_offset = Vector2( 230.958, 6.84497 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "there.is.no.dana.onlyzuul.sh  goz.er  tung.uska.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform3" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 485.0
+margin_right = 440.0
+margin_bottom = 502.0
+rect_pivot_offset = Vector2( 230.958, 6.84497 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Lorem.ipsum.dolor.amet.consectetur.adipiscingaa.sh"
+script = ExtResource( 2 )
+
+[node name="VirusPlatform4" type="Label" parent="Platforms/VirusPlatforms" groups=[
+"hideOnStart",
+]]
+margin_left = 40.0
+margin_top = 330.0
+margin_right = 400.0
+margin_bottom = 347.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "that.other.guy.is.a.virus.im.totally.legit.sh"
 script = ExtResource( 2 )
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
 [connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
+[connection signal="body_entered" from="Triggers/DeathTrigger" to="." method="_on_DeathTrigger_body_entered"]
 
 [editable path="CursorBoy"]
