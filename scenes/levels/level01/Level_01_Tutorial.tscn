@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/levels/level01/Level_01_Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://CursorBoy.tscn" type="PackedScene" id=2]
@@ -8,10 +8,7 @@
 [ext_resource path="res://scenes/levels/level01/HelpTrigger.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 581.667, 410.269 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3.99892, 7.56165 )
+extents = Vector2( 581.667, 431.347 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 334.041, 382.45 )
@@ -34,15 +31,11 @@ position = Vector2( -235.602, 352.452 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
 self_modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
-position = Vector2( 667.673, 46.7792 )
+position = Vector2( 692.8, 43.1449 )
 shape = SubResource( 1 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-position = Vector2( 21.7078, 29.8747 )
-
-[node name="CollisionBox" parent="CursorBoy" index="1"]
-shape = SubResource( 2 )
+position = Vector2( 22.4947, 30.6652 )
 
 [node name="Platform1" type="Label" parent="." groups=[
 "clearable",
@@ -181,7 +174,6 @@ script = ExtResource( 3 )
 
 [node name="HelpTrigger" type="Area2D" parent="Triggers"]
 editor/display_folded = true
-visible = false
 position = Vector2( 96.1257, 75.8678 )
 script = ExtResource( 6 )
 
@@ -220,8 +212,8 @@ current = true
 
 [node name="FileBoxHighlight" type="ColorRect" parent="." groups=[
 "clearable",
+"hideOnStart",
 ]]
-visible = false
 margin_left = 320.0
 margin_top = 610.0
 margin_right = 410.0
@@ -229,7 +221,6 @@ margin_bottom = 630.0
 color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
-[connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="body_shape_entered" from="Triggers/HelpTrigger" to="." method="_on_player_enters_help_trigger"]
 [connection signal="body_shape_exited" from="Triggers/HelpTrigger" to="." method="_on_help_trigger_exited"]
 [connection signal="body_shape_entered" from="Triggers/Level2Trigger" to="." method="_on_Level2Trigger_body_shape_entered"]
@@ -237,5 +228,3 @@ color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [connection signal="body_shape_entered" from="Triggers/CommandsTrigger" to="." method="_on_CommandsTrigger_body_shape_entered"]
 [connection signal="body_shape_exited" from="Triggers/CommandsTrigger" to="." method="_on_CommandsTrigger_body_shape_exited"]
 [connection signal="body_entered" from="Cameras/CameraTransitionTrigger01" to="." method="_on_CameraTransitionTrigger01_body_entered"]
-
-[editable path="CursorBoy"]

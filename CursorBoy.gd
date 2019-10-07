@@ -6,7 +6,7 @@ signal player_submitted_text(text)
 
 const GRAVITY = 9.8
 const MOVEMENT_SPEED = 100
-const JUMP_VELOCITY = 200
+const JUMP_VELOCITY = 250
 const FALL_MULTIPLIER = 10
 const MAX_FALL_VELOCITY = 300
 const HANG_ACCEL = 200

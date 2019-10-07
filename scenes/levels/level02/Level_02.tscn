@@ -1,16 +1,202 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/collidable_label.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/level02/Level_02.gd" type="Script" id=1]
+[ext_resource path="res://CursorBoy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/collidable_label.gd" type="Script" id=3]
+[ext_resource path="res://scenes/levels/level01/Node.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 596.576, 387 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.2842, 20 )
 
 [node name="Level_02" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 513.424, 300 )
 current = true
 
-[node name="CollidableLabel" type="Label" parent="."]
-margin_left = -64.2241
-margin_top = -10.0592
-margin_right = 62.7759
-margin_bottom = 3.94083
-text = "LEVEL 2 Placeholder"
-script = ExtResource( 1 )
+[node name="CursorBoy" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 26, 30 )
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="filenamePlatform" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
+margin_left = 10.0
+margin_top = 42.0
+margin_right = 106.0
+margin_bottom = 59.0
+text = "#level02.txt"
+script = ExtResource( 3 )
+
+[node name="HelpGroup" type="Node" parent="Platforms"]
+script = ExtResource( 4 )
+
+[node name="lsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 363.424
+margin_top = 390.0
+margin_right = 659.424
+margin_bottom = 407.0
+text = "ls - lists files in current directory"
+script = ExtResource( 3 )
+
+[node name="commandsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 321.784
+margin_top = 320.0
+margin_right = 393.784
+margin_bottom = 337.0
+text = "Commands"
+script = ExtResource( 3 )
+
+[node name="navPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 321.784
+margin_top = 224.526
+margin_right = 401.784
+margin_bottom = 241.526
+text = "Navigation"
+script = ExtResource( 3 )
+
+[node name="navTextPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 363.424
+margin_top = 260.0
+margin_right = 683.424
+margin_bottom = 297.0
+text = "Use <h> to move left, <l>  to move right
+<j> to jump"
+script = ExtResource( 3 )
+
+[node name="openPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 362.449
+margin_top = 429.231
+margin_right = 498.449
+margin_bottom = 446.231
+rect_pivot_offset = Vector2( 64.2882, 26.8959 )
+text = "open - opens file"
+script = ExtResource( 3 )
+
+[node name="clearPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+]]
+margin_left = 362.449
+margin_top = 470.0
+margin_right = 666.449
+margin_bottom = 487.0
+text = "clear - clears and resets the terminal"
+script = ExtResource( 3 )
+
+[node name="genPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"clearable",
+"helpPlatforms",
+"hideOnStart",
+]]
+margin_left = 362.449
+margin_top = 352.001
+margin_right = 842.449
+margin_bottom = 369.001
+text = "gen_level3 - Creates a file containing contents of level 3"
+script = ExtResource( 3 )
+
+[node name="level03Platform" type="Label" parent="Platforms" groups=[
+"clearable",
+"hideOnStart",
+]]
+margin_left = 10.0
+margin_top = 470.0
+margin_right = 98.0
+margin_bottom = 487.0
+custom_colors/font_color = Color( 1, 0.721569, 0.192157, 1 )
+text = "level03.txt"
+script = ExtResource( 3 )
+
+[node name="todoPlatform" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
+margin_left = 9.0
+margin_top = 90.0
+margin_right = 73.0
+margin_bottom = 107.0
+text = "TODO(s):"
+script = ExtResource( 3 )
+
+[node name="CollidableLabel" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
+margin_left = 8.6643
+margin_top = 120.0
+margin_right = 312.664
+margin_bottom = 137.0
+rect_pivot_offset = Vector2( 85.8529, 19.3636 )
+text = "* Remember to delete \"homework\" folder before mom comes home"
+script = ExtResource( 3 )
+
+[node name="noFilesPlatform" type="Label" parent="Platforms" groups=[
+"clearable",
+"hideOnStart",
+]]
+margin_left = 10.0
+margin_top = 507.0
+margin_right = 298.0
+margin_bottom = 524.0
+text = "There are no files in this directory"
+script = ExtResource( 3 )
+
+[node name="CollidableLabel3" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
+margin_left = 10.0
+margin_top = 140.0
+margin_right = 282.0
+margin_bottom = 157.0
+text = "* Run gen_level3 to create level03"
+script = ExtResource( 3 )
+
+[node name="WorldBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2( 513.424, 337 )
+shape = SubResource( 1 )
+
+[node name="Level03Highlight" type="ColorRect" parent="." groups=[
+"hideOnStart",
+]]
+margin_left = 9.0
+margin_top = 470.0
+margin_right = 100.0
+margin_bottom = 490.0
+color = Color( 0.294118, 0.294118, 0.294118, 1 )
+
+[node name="Triggers" type="Node" parent="."]
+
+[node name="Level03Trigger" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level03Trigger"]
+position = Vector2( 54.8414, 470.88 )
+shape = SubResource( 2 )
+[connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
+[connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
+[connection signal="body_entered" from="Triggers/Level03Trigger" to="." method="_on_Level03Trigger_body_entered"]
+[connection signal="body_exited" from="Triggers/Level03Trigger" to="." method="_on_Level03Trigger_body_exited"]
+
+[editable path="CursorBoy"]

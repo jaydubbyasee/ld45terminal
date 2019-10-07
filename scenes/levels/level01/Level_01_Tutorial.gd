@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	get_tree().call_group("hideOnStart", "set_visible", false)
 	$"/root/state_manager".current_level = "res://scenes/levels/level01/Level_01_Tutorial.tscn"
 
 var help_entered = false
@@ -28,20 +29,16 @@ func _on_CommandsTrigger_body_shape_exited(body_id, body, body_shape, area_shape
 	pass
 
 func _on_CursorBoy_player_submitted_text(text):
-	if help_entered:
-		match text:
-			"/h", "/help":
-				$HelpGroup.enable()
-	if command_trigger_entered:
-		match text:
-			"ls":
-				$FileGroup.set_enabled(true)
-			"clear":
-				get_tree().call_group("clearable", "disable")
-				get_tree().call_group("clearable", "set_visible", false)
-	if level_trigger_entered:
-		match text:
-			"open":
+	match text:
+		"/h", "/help":
+			$HelpGroup.enable()
+		"ls":
+			$FileGroup.set_enabled(true)
+		"clear":
+			get_tree().call_group("clearable", "disable")
+			get_tree().call_group("clearable", "set_visible", false)
+		"open":
+			if level_trigger_entered:
 				get_tree().change_scene("res://scenes/levels/level02/Level_02.tscn")
 
 var level_trigger_entered = false
