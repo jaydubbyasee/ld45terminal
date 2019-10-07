@@ -60,11 +60,6 @@ func _physics_process(delta):
 		if Input.is_action_just_released("jump") && ! $JumpTimer.is_stopped():
 			$JumpTimer.stop()
 			
-		if Input.is_action_just_pressed("shoot"):
-			var projectile = projectile_scene.instance()
-			projectile.position = get_global_position()
-			get_parent().add_child(projectile)
-			
 		if Input.is_action_just_pressed("ui_accept"):
 			print("entering insert mode")
 			_mode = CURSOR_MODE.insert
