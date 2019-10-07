@@ -4,4 +4,8 @@ extends Node2D
 func _unhandled_key_input(event):
 	if event is InputEventKey:
 		if event.pressed:
-			get_tree().change_scene($"/root/state_manager".current_level)
+			$BootTimer.start()		
+			$LaunchingLabel.visible = true
+
+func _on_BootTimer_timeout():
+	get_tree().change_scene($"/root/state_manager".current_level)

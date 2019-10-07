@@ -82,6 +82,7 @@ radial_accel_random = 1.0
 angle_random = 1.0
 scale_amount_random = 1.0
 scale_amount_curve = SubResource( 7 )
+color = Color( 1, 0, 0, 1 )
 anim_speed = 28.0
 anim_speed_random = 1.0
 
@@ -89,5 +90,5 @@ anim_speed_random = 1.0
 stream = ExtResource( 4 )
 
 [node name="DeathTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true

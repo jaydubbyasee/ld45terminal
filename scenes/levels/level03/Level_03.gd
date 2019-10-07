@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$"/root/state_manager".current_level = "res://scenes/levels/level02/Level_02.tscn"
+	$"/root/state_manager".current_level = "res://scenes/levels/level03/Level_03.tscn"
 	get_tree().call_group("hideOnStart", "disable")
 	get_tree().call_group("hideOnStart", "set_visible", false)
 	pass
@@ -31,20 +31,21 @@ func _on_CursorBoy_player_submitted_text(text):
 		"clear":
 			get_tree().call_group("clearable", "disable")
 		"open":
-			if level3_trigger:
-				get_tree().change_scene("res://scenes/levels/level03/Level_03.tscn")	
+			if level4_trigger:
+				# get_tree().change_scene("res://scenes/levels/level03/Level_03.tscn")
+				print("TODO: change to level 4")
 	pass
 
-var level3_trigger = false
-func _on_Level03Trigger_body_entered(body):
+var level4_trigger = false
+func _on_Level04Trigger_body_entered(body):
 	if body == $CursorBoy:
-		$Level03Highlight.visible = true
-		level3_trigger = true
+		$Level04Highlight.visible = true
+		level4_trigger = true
 	pass
 
 
-func _on_Level03Trigger_body_exited(body):
+func _on_Level04Trigger_body_exited(body):
 	if body == $CursorBoy:
-		$Level03Highlight.visible = false
-		level3_trigger = false
+		$Level04Highlight.visible = false
+		level4_trigger = false
 	pass

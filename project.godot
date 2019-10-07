@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 state_manager="*res://scripts/state_manager.gd"
 
+[display]
+
+window/size/resizable=false
+
 [gui]
 
 theme/custom_font="res://fonts/ubuntu-mono-r.tres"

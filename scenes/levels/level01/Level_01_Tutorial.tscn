@@ -26,6 +26,7 @@ extents = Vector2( 151.302, 60.5969 )
 script = ExtResource( 1 )
 
 [node name="WorldBounds" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( -235.602, 352.452 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
@@ -35,6 +36,7 @@ position = Vector2( 699.116, 42.0923 )
 shape = SubResource( 1 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 22.4947, 30.6652 )
 
 [node name="Platform1" type="Label" parent="." groups=[
@@ -97,8 +99,7 @@ margin_left = 360.0
 margin_top = 263.0
 margin_right = 624.0
 margin_bottom = 294.0
-text = "Use <h> to move left, <l>  to move right
-<j> to jump"
+text = "Use arrow keys to move and <space> to jump"
 script = ExtResource( 3 )
 
 [node name="CollidableLabel8" type="Label" parent="HelpGroup" groups=[
@@ -125,6 +126,7 @@ script = ExtResource( 3 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="FileGroup" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="CollidableLabel" type="Label" parent="FileGroup" groups=[
@@ -171,6 +173,7 @@ text = "To enter command mode, press <enter>"
 script = ExtResource( 3 )
 
 [node name="Triggers" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="HelpTrigger" type="Area2D" parent="Triggers"]
 position = Vector2( 96.1257, 75.8678 )

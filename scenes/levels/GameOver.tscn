@@ -17,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -503.689
-margin_top = -291.554
-margin_right = 392.311
-margin_bottom = -158.554
+margin_left = -504.0
+margin_top = -292.0
+margin_right = -261.0
+margin_bottom = -225.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "A FATAL error has occurred!
@@ -33,3 +33,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 color = Color( 0, 0, 0, 1 )
+
+[node name="BootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LaunchingLabel" type="Label" parent="."]
+visible = false
+margin_left = -504.832
+margin_top = -219.328
+margin_right = -312.832
+margin_bottom = -202.328
+text = "Starting a new terminal session..."
+[connection signal="timeout" from="BootTimer" to="." method="_on_BootTimer_timeout"]
