@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/levels/level03/Level_03.gd" type="Script" id=1]
 [ext_resource path="res://scripts/collidable_label.gd" type="Script" id=2]
@@ -29,15 +29,23 @@ extents = Vector2( 173.354, 10 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 83.9548, 12.6867 )
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 30.3666, 18.908 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 52.8582, 15.8163 )
+
 [node name="Level_03" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="levelPlatform" type="Label" parent="."]
+[node name="levelPlatform" type="Label" parent="." groups=[
+"clearable",
+]]
 margin_left = 4.0
 margin_top = 40.0
 margin_right = 100.0
 margin_bottom = 57.0
-text = "#level03.sh"
+text = "#level03.txt"
 script = ExtResource( 2 )
 
 [node name="CursorBoy" parent="." instance=ExtResource( 3 )]
@@ -51,6 +59,7 @@ position = Vector2( 510, 300 )
 [node name="WorldBounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
+visible = false
 position = Vector2( 513.424, 337 )
 shape = SubResource( 1 )
 
@@ -66,46 +75,97 @@ color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [node name="Triggers" type="Node" parent="."]
 
 [node name="Level04Trigger" type="Area2D" parent="Triggers"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level04Trigger"]
 position = Vector2( -130, 760 )
 shape = SubResource( 2 )
 
 [node name="DeathTrigger" type="Area2D" parent="Triggers"]
+editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 255.547, 474.126 )
 shape = SubResource( 3 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 190, 420 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 194.469, 376.1 )
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 71.6691, 209.319 )
 shape = SubResource( 6 )
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 209.888, 257.099 )
 shape = SubResource( 7 )
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Triggers/DeathTrigger"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Triggers/DeathTrigger" groups=[
+"clearable",
+"hideOnStart",
+"assetGroup",
+]]
 position = Vector2( 533.427, 422.02 )
 shape = SubResource( 8 )
+
+[node name="AssetTrigger" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/AssetTrigger" groups=[
+"assetGroup",
+]]
+position = Vector2( 66.1585, 103.648 )
+shape = SubResource( 9 )
+
+[node name="AssetHighlight" type="ColorRect" parent="Triggers"]
+visible = false
+margin_left = 37.0
+margin_top = 103.0
+margin_right = 96.0
+margin_bottom = 127.0
+color = Color( 0.309804, 0.309804, 0.309804, 1 )
+
+[node name="PasswordTrigger" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/PasswordTrigger" groups=[
+"assetGroup",
+]]
+position = Vector2( 182.641, 204.245 )
+shape = SubResource( 10 )
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="HelpGroup" type="Node" parent="Platforms"]
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="lsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 481.64
 margin_top = 200.0
@@ -115,9 +175,9 @@ text = "ls - lists files in current directory"
 script = ExtResource( 2 )
 
 [node name="commandsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 440.0
 margin_top = 160.0
@@ -127,9 +187,9 @@ text = "Commands"
 script = ExtResource( 2 )
 
 [node name="navPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 440.0
 margin_top = 70.0
@@ -139,9 +199,9 @@ text = "Navigation"
 script = ExtResource( 2 )
 
 [node name="navTextPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 482.0
 margin_top = 105.0
@@ -151,9 +211,9 @@ text = "Use arrow keys to move and <space> to jump"
 script = ExtResource( 2 )
 
 [node name="openPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 480.665
 margin_top = 240.0
@@ -164,9 +224,9 @@ text = "open - opens file or directory"
 script = ExtResource( 2 )
 
 [node name="clearPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
+"helpPlatforms",
 "clearable",
 "hideOnStart",
-"helpPlatforms",
 ]]
 margin_left = 481.64
 margin_top = 280.0
@@ -175,21 +235,13 @@ margin_bottom = 297.0
 text = "clear - clears and resets the terminal"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel" type="Label" parent="Platforms" groups=[
-"hideOnStart",
-]]
-margin_left = 920.0
-margin_top = 570.0
-margin_right = 1010.0
-margin_bottom = 587.0
-custom_colors/font_color = Color( 1, 0.721569, 0.192157, 1 )
-text = "the.end.txt"
-script = ExtResource( 2 )
-
 [node name="AssetsGroup" type="Node" parent="Platforms"]
 
 [node name="AssetsFolderPlatform" type="Label" parent="Platforms/AssetsGroup" groups=[
+"preOpenAsset",
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 105.474
@@ -200,7 +252,9 @@ text = "Assets/"
 script = ExtResource( 2 )
 
 [node name="BootyPlatform" type="Label" parent="Platforms/AssetsGroup" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 130.0
 margin_top = 200.0
@@ -210,8 +264,11 @@ custom_colors/font_color = Color( 1, 0.721569, 0.192157, 1 )
 text = "passwords.txt"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel4" type="Label" parent="Platforms/AssetsGroup" groups=[
+[node name="SafePlatform" type="Label" parent="Platforms/AssetsGroup" groups=[
+"safeGroup",
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 350.0
 margin_top = 410.0
@@ -222,7 +279,9 @@ text = "SAFE_HAVEN/"
 script = ExtResource( 2 )
 
 [node name="CollidableLabel" type="Label" parent="Platforms/AssetsGroup" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 260.0
 margin_top = 200.0
@@ -231,30 +290,13 @@ margin_bottom = 217.0
 text = "Insufficient privileges"
 script = ExtResource( 2 )
 
-[node name="CollidableLabel2" type="Label" parent="Platforms/AssetsGroup" groups=[
-"hideOnStart",
-]]
-margin_left = 350.0
-margin_top = 570.0
-margin_right = 726.0
-margin_bottom = 587.0
-text = "becareful.you.are.almost.there.dont.mess.up.txt"
-script = ExtResource( 2 )
+[node name="VirusPlatforms" type="Node" parent="Platforms/AssetsGroup"]
+editor/display_folded = true
 
-[node name="CollidableLabel3" type="Label" parent="Platforms/AssetsGroup" groups=[
+[node name="VirusPlatform9" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
-]]
-margin_left = 799.599
-margin_top = 568.603
-margin_right = 847.599
-margin_bottom = 585.603
-text = "finish"
-script = ExtResource( 2 )
-
-[node name="VirusPlatforms" type="Node" parent="Platforms"]
-
-[node name="VirusPlatform9" type="Label" parent="Platforms/VirusPlatforms" groups=[
-"hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 200.0
@@ -265,8 +307,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "virus.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform8" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform8" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 modulate = Color( 1, 0, 0, 1 )
 margin_left = 40.0
@@ -276,8 +320,10 @@ margin_bottom = 264.0
 text = "not.a.virus.exe  trinity.worm.obj  5head.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform7" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform7" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 290.0
@@ -287,8 +333,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "totally_nOt_a_viruS_pep3ga.exe.sh to0uvucchh.me.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform6" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform6" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 450.0
 margin_top = 410.0
@@ -298,8 +346,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "watch.your.step.kappa"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform5" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform5" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 370.0
@@ -309,8 +359,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "hydra.a  minotaur.o touch.me.feel.me.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 410.0
@@ -321,8 +373,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "touch.me.feel.me.sh hecate.banish.exe"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform2" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform2" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 39.0
 margin_top = 450.0
@@ -333,8 +387,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "there.is.no.dana.onlyzuul.sh  goz.er  tung.uska.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform3" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform3" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 485.0
@@ -345,8 +401,10 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "sublime.a  bl1Ss.o  n1rVANa.exe   kazaa.sh limewire.sh"
 script = ExtResource( 2 )
 
-[node name="VirusPlatform4" type="Label" parent="Platforms/VirusPlatforms" groups=[
+[node name="VirusPlatform4" type="Label" parent="Platforms/AssetsGroup/VirusPlatforms" groups=[
+"clearable",
 "hideOnStart",
+"assetGroup",
 ]]
 margin_left = 40.0
 margin_top = 330.0
@@ -355,9 +413,50 @@ margin_bottom = 347.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "that.other.guy.is.a.virus.im.totally.legit.sh"
 script = ExtResource( 2 )
+
+[node name="SafeGroup" type="Node" parent="Platforms"]
+
+[node name="EndGamePlatform" type="Label" parent="Platforms/SafeGroup" groups=[
+"safeGroup",
+"clearable",
+"hideOnStart",
+]]
+margin_left = 920.0
+margin_top = 570.0
+margin_right = 1010.0
+margin_bottom = 587.0
+custom_colors/font_color = Color( 1, 0.721569, 0.192157, 1 )
+text = "the.end.txt"
+script = ExtResource( 2 )
+
+[node name="TogglePlatform" type="Label" parent="Platforms/SafeGroup" groups=[
+"safeGroup",
+"clearable",
+"hideOnStart",
+]]
+margin_left = 799.599
+margin_top = 568.603
+margin_right = 847.599
+margin_bottom = 585.603
+text = "finish"
+script = ExtResource( 2 )
+
+[node name="CarefulPlatform" type="Label" parent="Platforms/SafeGroup" groups=[
+"safeGroup",
+"clearable",
+"hideOnStart",
+]]
+margin_left = 350.0
+margin_top = 570.0
+margin_right = 726.0
+margin_bottom = 587.0
+text = "becareful.you.are.almost.there.dont.mess.up.txt"
+script = ExtResource( 2 )
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
 [connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
 [connection signal="body_entered" from="Triggers/DeathTrigger" to="." method="_on_DeathTrigger_body_entered"]
+[connection signal="body_entered" from="Triggers/AssetTrigger" to="." method="_on_AssetTrigger_body_entered"]
+[connection signal="body_exited" from="Triggers/AssetTrigger" to="." method="_on_AssetTrigger_body_exited"]
 
 [editable path="CursorBoy"]

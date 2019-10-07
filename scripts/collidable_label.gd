@@ -4,6 +4,7 @@ class_name CollidableLabel
 
 var static_body
 var collision_shape
+var enabled = true
 
 func _ready():
 	static_body = StaticBody2D.new()
@@ -24,9 +25,11 @@ func _ready():
 func enable():
 	visible = true
 	collision_shape.disabled = false
+	enabled = true
 	pass
 	
 func disable():
 	visible = false
 	collision_shape.disabled = true
+	enabled = false
 	pass
