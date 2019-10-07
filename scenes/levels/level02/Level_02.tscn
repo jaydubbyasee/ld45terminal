@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/levels/level01/Node.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 596.576, 387 )
+extents = Vector2( 506.576, 337 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 46.2842, 20 )
@@ -172,7 +172,6 @@ text = "* Run gen_level3 to create level03"
 script = ExtResource( 3 )
 
 [node name="WorldBounds" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
 position = Vector2( 513.424, 337 )

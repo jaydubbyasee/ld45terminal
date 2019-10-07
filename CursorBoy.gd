@@ -96,3 +96,4 @@ func die():
 	$DeathSfxPlayer.play()
 	$DeathTimer.start()
 	_dead = true
+	$AnimatedSprite.visible = false

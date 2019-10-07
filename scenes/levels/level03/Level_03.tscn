@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/levels/level01/Node.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 596.576, 387 )
+extents = Vector2( 506.576, 337 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 46.2842, 20 )
