@@ -136,18 +136,7 @@ margin_left = 9.0
 margin_top = 90.0
 margin_right = 73.0
 margin_bottom = 107.0
-text = "TODO(s):"
-script = ExtResource( 3 )
-
-[node name="CollidableLabel" type="Label" parent="Platforms" groups=[
-"clearable",
-]]
-margin_left = 10.0
-margin_top = 150.0
-margin_right = 338.0
-margin_bottom = 167.0
-rect_pivot_offset = Vector2( 85.8529, 19.3636 )
-text = "* Don't forget to cleanup \"assets\" folder"
+text = "## Reminders"
 script = ExtResource( 3 )
 
 [node name="noFilesPlatform" type="Label" parent="Platforms" groups=[
@@ -171,15 +160,28 @@ margin_bottom = 147.0
 text = "* Run gen_level3 to generate level03"
 script = ExtResource( 3 )
 
-[node name="CollidableLabel2" type="Label" parent="Platforms"]
+[node name="CollidableLabel2" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
 margin_left = 10.0
 margin_top = 110.0
 margin_right = 210.0
-margin_bottom = 137.0
+margin_bottom = 130.0
 text = "* Review LD45 submissions"
 script = ExtResource( 3 )
 
+[node name="CollidableLabel4" type="Label" parent="Platforms" groups=[
+"clearable",
+]]
+margin_left = 10.0
+margin_top = 150.0
+margin_right = 266.0
+margin_bottom = 170.0
+text = "* You can use /h to display help"
+script = ExtResource( 3 )
+
 [node name="WorldBounds" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
 position = Vector2( 513.424, 337 )

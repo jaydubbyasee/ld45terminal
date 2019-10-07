@@ -173,7 +173,6 @@ text = "To enter command mode, press <enter>"
 script = ExtResource( 3 )
 
 [node name="Triggers" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="HelpTrigger" type="Area2D" parent="Triggers"]
 position = Vector2( 96.1257, 75.8678 )
