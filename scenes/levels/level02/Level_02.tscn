@@ -38,19 +38,19 @@ script = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="lsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
 margin_left = 363.424
-margin_top = 390.0
+margin_top = 400.0
 margin_right = 659.424
-margin_bottom = 407.0
+margin_bottom = 417.0
 text = "ls - lists files in current directory"
 script = ExtResource( 3 )
 
 [node name="commandsPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
 margin_left = 321.784
 margin_top = 320.0
@@ -60,8 +60,8 @@ text = "Commands"
 script = ExtResource( 3 )
 
 [node name="navPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
 margin_left = 321.784
 margin_top = 224.526
@@ -71,8 +71,8 @@ text = "Navigation"
 script = ExtResource( 3 )
 
 [node name="navTextPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
 margin_left = 363.424
 margin_top = 260.0
@@ -83,37 +83,37 @@ text = "Use <h> to move left, <l>  to move right
 script = ExtResource( 3 )
 
 [node name="openPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
 margin_left = 362.449
-margin_top = 429.231
+margin_top = 440.0
 margin_right = 498.449
-margin_bottom = 446.231
+margin_bottom = 457.0
 rect_pivot_offset = Vector2( 64.2882, 26.8959 )
 text = "open - opens file"
 script = ExtResource( 3 )
 
 [node name="clearPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 ]]
-margin_left = 362.449
-margin_top = 470.0
-margin_right = 666.449
-margin_bottom = 487.0
+margin_left = 363.424
+margin_top = 480.0
+margin_right = 667.424
+margin_bottom = 497.0
 text = "clear - clears and resets the terminal"
 script = ExtResource( 3 )
 
 [node name="genPlatform" type="Label" parent="Platforms/HelpGroup" groups=[
-"clearable",
 "helpPlatforms",
+"clearable",
 "hideOnStart",
 ]]
 margin_left = 362.449
-margin_top = 352.001
+margin_top = 360.0
 margin_right = 842.449
-margin_bottom = 369.001
+margin_bottom = 377.0
 text = "gen_level3 - Creates a file containing contents of level 3"
 script = ExtResource( 3 )
 
@@ -172,6 +172,7 @@ text = "* Run gen_level3 to create level03"
 script = ExtResource( 3 )
 
 [node name="WorldBounds" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
 position = Vector2( 513.424, 337 )

@@ -10,16 +10,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 581.667, 431.347 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 334.041, 382.45 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 60, 40 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 511.548, 370 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 151.302, 60.5969 )
 
 [node name="Level01_Tutorial" type="Node2D"]
@@ -179,20 +179,20 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/HelpTrigger"]
 position = Vector2( 236.739, 321.253 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Level2Trigger" type="Area2D" parent="Triggers"]
 position = Vector2( 320, 610 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Level2Trigger"]
 position = Vector2( 48, 10 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CommandsTrigger" type="Area2D" parent="Triggers"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CommandsTrigger"]
 position = Vector2( 510, 370 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Cameras" type="Node" parent="."]
 
@@ -201,7 +201,7 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cameras/CameraTransitionTrigger01"]
 position = Vector2( 458.996, 251.439 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CameraHint01" type="Node2D" parent="Cameras"]
 position = Vector2( 820, 510 )
@@ -221,6 +221,7 @@ margin_bottom = 630.0
 color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [connection signal="body_exited" from="WorldBounds" to="." method="_on_WorldBounds_body_exited"]
 [connection signal="player_submitted_text" from="CursorBoy" to="." method="_on_CursorBoy_player_submitted_text"]
+[connection signal="timeout" from="CursorBoy/DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="body_shape_entered" from="Triggers/HelpTrigger" to="." method="_on_player_enters_help_trigger"]
 [connection signal="body_shape_exited" from="Triggers/HelpTrigger" to="." method="_on_help_trigger_exited"]
 [connection signal="body_shape_entered" from="Triggers/Level2Trigger" to="." method="_on_Level2Trigger_body_shape_entered"]
@@ -228,3 +229,5 @@ color = Color( 0.294118, 0.294118, 0.294118, 1 )
 [connection signal="body_shape_entered" from="Triggers/CommandsTrigger" to="." method="_on_CommandsTrigger_body_shape_entered"]
 [connection signal="body_shape_exited" from="Triggers/CommandsTrigger" to="." method="_on_CommandsTrigger_body_shape_exited"]
 [connection signal="body_entered" from="Cameras/CameraTransitionTrigger01" to="." method="_on_CameraTransitionTrigger01_body_entered"]
+
+[editable path="CursorBoy"]
