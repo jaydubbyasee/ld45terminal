@@ -10,7 +10,7 @@
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3.99892, 8.06995 )
+extents = Vector2( 9.78352, 8.06995 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -43,6 +43,7 @@ expand_to_text_length = true
 caret_blink_speed = 1.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( -6.27835, -0.0565605 )
 shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
